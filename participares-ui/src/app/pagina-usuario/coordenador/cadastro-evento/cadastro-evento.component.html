@@ -1,0 +1,44 @@
+<div class="container">
+
+  <div class="p-col-12"><h1 class="title-container">Cadastro de eventos</h1></div>
+
+  <div class="form-container">
+    <form autocomplete="off">
+      <div class="p-grid">
+
+        <div class="p-col-12">
+          <label class="text-container" style="margin-bottom: 10px;">Nome: </label>
+          <div class="p-col-12">
+            <input class="input-container" type="text" placeholder="Nome"/>
+          </div>
+        </div>
+
+        <div class="p-col-12">
+          <label class="text-container" style="margin-bottom: 10px;">Descrição: </label>
+          <div class="p-col-12">
+            <input class="input-container" type="text" placeholder="Descrição"/>
+          </div>
+        </div>
+
+        <div class="p-col-12">
+          <label class="text-container" style="margin-bottom: 10px;">Endereço: </label>
+          <div class="p-col-12">
+            <input class="input-container" type="text" placeholder="Endereço"/>
+          </div>
+        </div>
+
+        <!--Calendário-->
+        <div class="p-col-6 p-md-3 p-fluid">
+          <label class="text-container" style="margin-bottom: 10px;">Data de realização</label>
+          <p-calendar dateFormat="dd/mm/yy" name="DataRealizacao" ></p-calendar>
+        </div>
+
+        <!-- Botão salvar -->
+        <div class="p-col-12">
+          <button type="submit" id="salvar">Salvar</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

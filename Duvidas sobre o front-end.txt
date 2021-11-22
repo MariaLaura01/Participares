@@ -1,0 +1,15 @@
+
+como unir com o back-end
+
+pra que serve o service
+
+como coloca uma galeria
+
+como fazer o titulo da pagina mudar de acordo com o nome
+
+como linkar as paginas sem ter o conteudo da pagina anterior aparecendo junto com o da pagina atual (angualar router)
+(https://pt.stackoverflow.com/questions/363668/angular-página-sem-mostrar-componentes-anteriores)
+
+como deixar as paginas ajustaveis para cada tipo de aparelho
+
+pra que serve o component.ts

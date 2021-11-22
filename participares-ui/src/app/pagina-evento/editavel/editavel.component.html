@@ -1,0 +1,85 @@
+<div class="container">
+
+  <!-- Título da página -->
+  <div class="title-container p-col-12">
+    <!--CSS local-->
+    <h1 class="title-adjust">Nome do evento</h1>
+  </div>
+
+
+  <!-- Informações da página -->
+  <div class="p-grid">
+    <div class="p-col-12">
+
+     <div class="splitter-container" style="margin-bottom: 40px;"> <!-- Por algum motivo o CSS não funciona, então fiz essa gambiarra -->
+        <p-splitter [style]="{'height': '100px', 'background-color': 'aliceblue', 'text-align': 'justify'}" layout="horizontal">
+          <ng-template pTemplate>
+            <p class="text-container" pTooltip="Descrição do evento" tooltipPosition="top">Descrição</p>
+          </ng-template>
+          <ng-template pTemplate>
+              <p class="text-container" style="margin-left: 4px;" pTooltip="Data de realização do evento" tooltipPosition="top">Data</p>
+          </ng-template>
+        </p-splitter>
+
+        <p-divider></p-divider>
+
+      </div>
+
+      <div class="splitter-container">
+        <p-splitter [style]="{'height': '100px', 'background-color': 'aliceblue', 'text-align': 'justify' }" layout="horizontal">
+          <ng-template pTemplate>
+              <p class="text-container" pTooltip="Endereço" tooltipPosition="top">Endereço</p>
+          </ng-template>
+          <ng-template pTemplate>
+            <p class="text-container" style="margin-left: 4px;" pTooltip="Escola responsável" tooltipPosition="top">Escola responsável</p>
+          </ng-template>
+        </p-splitter>
+
+        <!-- Conteúdo antes da galeria -->
+        <div class="container-align">
+          <div class="upload-container" style="margin-top: 10px;">
+            <p-fileUpload  pTooltip="Nova foto" tooltipPosition="top" #fubauto mode="basic" name="myfile[]" url="./upload.php" accept="image/*" [auto]="true" chooseLabel="Nova foto"></p-fileUpload>
+          </div>
+          <div class="text-container" style="float: left; margin-top: 10px;"><p><b>Fotos:</b></p></div>
+
+          <div>
+            <button class="button-container" style="margin: 6px; float: right;" pTooltip="Editar evento" tooltipPosition="top"><i class="pi pi-pencil"></i>  Editar evento</button>
+            <button class="button-container-apagar" style="margin: 6px; float: right;" pTooltip="Apagar evento" tooltipPosition="top"><i class="pi pi-trash"></i>  Apagar evento</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  </div>
+
+  <!-- Galeria -->
+  <div  class="p-shadow-24" style="margin-top: 80px; float: left;">
+      Colocar uma galeria aqui (apagar o style dentro desse div)
+  </div>
+
+  <!-- Não sei como faz a galeria ;-;
+
+  <p-galleria  [(visible)]="displayCustom" [(activeIndex)]="activeIndex" [numVisible]="7"
+  [circular]="false" [fullScreen]="false" [showItemNavigators]="true" [showThumbnails]="true" [baseZIndex]="100000">
+
+  <ng-template pTemplate="item" let-item>
+      <img [src]="item.previewImageSrc" style="width: 100%; display: block;"/>
+  </ng-template>
+  <ng-template pTemplate="thumbnail" let-item>
+      <div class="p-grid p-nogutter p-justify-center">
+          <img [src]="item.thumbnailImageSrc" style="display: block;"/>
+      </div>
+  </ng-template>
+</p-galleria>
+<div *ngIf="images" class="p-grid" style="max-width: 400px;">
+  <div *ngFor="let image of images; let index = index;" class="p-col-3" key="index">
+      <img [src]="image.thumbnailImageSrc" [alt]="image.alt" style="cursor: pointer" (click)="imageClick(index)"/>
+  </div>
+-->
+</div>

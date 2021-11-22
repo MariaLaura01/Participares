@@ -1,0 +1,58 @@
+
+<div class="container">
+
+  <!-- Título da página - design geral (styles.css) -->
+  <div class="title-container p-col-12">
+    <h1 style="font-size: 60px;">Lista de assistentes</h1>
+  </div>
+
+  <!-- Primeiro texto da página (subtitulo) - design geral (styles.css) -->
+  <div class="text-container p-col-12">
+    <p>Selecione um assistente para visualizar, editar ou excluir suas informações.</p>
+  </div>
+
+  <!--Tablela contendo o nome dos assistentes - design geral (styles.css)-->
+  <div class="p-grid">
+    <div class="p-col-12">
+      <div class="table-container">
+        <p-table [value]="assistentes" [lazy]="true" responsiveLayout="scroll"
+            [paginator]="true" [rows]="5" [globalFilterFields]="['assistentes.nome','assistentes.email']">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="assistentes.nome">Nome<p-sortIcon field="nome"></p-sortIcon></th>
+                    <th pSortableColumn="assistentes.email">Email<p-sortIcon field="email"></p-sortIcon></th>
+                    <th style="text-align: center;">Informações sobre o assistente</th>
+                </tr>
+                <tr>
+                    <th>
+                        <p-columnFilter type="text" field="assistentes.nome"></p-columnFilter>
+                    </th>
+                    <th>
+                        <p-columnFilter type="text" field="assistentes.email"></p-columnFilter>
+                    </th>
+                    <th style="text-align: center;" >
+                      Clique no  <i class="pi pi-info-circle"></i>  para obter informações sobre o assistente,
+                      no  <i class="pi pi-pencil"></i> para editá-lo
+                      e no  <i class="pi pi-trash"></i>  para apagá-lo.
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-assistentes>
+                <tr>
+                    <td>{{ assistentes.nome }}</td>
+                    <td>{{ assistentes.email }}</td>
+                    <td>
+                      <div class="action-button">
+                        <button style="margin: 1px;" pButton icon="pi pi-info-circle" pTooltip="Mais informações" tooltipPosition="top"></button>
+                        <button style="margin: 1px;" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
+                        <button class="action-button-trash" pButton icon="pi pi-trash" pTooltip="Apagar" tooltipPosition="top"></button>
+                      </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>
+
