@@ -1,34 +1,33 @@
-<div class="container">
+<div class="container" *ngIf="evento">
 
   <!-- Título da página -->
   <div class="title-container p-col-12">
     <!--CSS local-->
-    <h1 class="title-adjust">Nome do evento</h1>
+    <h1 class="title-adjust"> {{evento.nome}} </h1>
   </div>
 
 
   <!-- Informações da página -->
-
-  <div class="p-col-12" style="margin-bottom: 20px;">
+  <div class="p-col-12" style="margin-bottom: 20px;" >
 
     <div>
       <p class="text-container"><b>Descrição: </b></p>
-      <p class="text-container" style="margin-bottom: 20px;"> Descrição </p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.descricao}} </p>
     </div>
 
     <div>
       <p class="text-container"><b>Data: </b></p>
-      <p class="text-container" style="margin-bottom: 20px;"> data </p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.data}} </p>
     </div>
 
     <div>
       <p class="text-container"><b>Endereço: </b></p>
-      <p class="text-container" style="margin-bottom: 20px;"> Endereço </p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.endereco}} </p>
     </div>
 
     <div>
       <p class="text-container"><b>Escola responsável: </b></p>
-      <p class="text-container" style="margin-bottom: 20px;"> escola  </p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{evento.codigo_escola}}  </p> <!-- Inserir o nome da escola ao inves do codigo-->
     </div>
 
     <!-- Conteúdo antes da galeria -->
@@ -41,11 +40,16 @@
       <div>
         <!-- Indicando onde o caminho do botão editar -->
         <nav>
-          <a href="/editar-evento">
+          <!-- Leva para a página de ediação do evento especifico -->
+          <a [routerLink]="['/editar-evento', evento.codigo]">
             <button class="button-container" style="margin: 6px; float: right;" pTooltip="Editar evento" tooltipPosition="top"><i class="pi pi-pencil"></i>  Editar evento</button>
           </a>
         </nav>
-        <button class="button-container-apagar" style="margin: 6px; float: right;" pTooltip="Apagar evento" tooltipPosition="top"><i class="pi pi-trash"></i>  Apagar evento</button>
+        <!-- Botão 'apagar' não troca de página por isso está fora do nav -->
+        <button class="button-container-apagar" style="margin: 6px; float: right;" pTooltip="Apagar evento" tooltipPosition="top"
+        (click)="confirmarExclusao(evento)">
+          <i class="pi pi-trash"></i>  Apagar evento
+        </button>
     </div>
 
   </div>

@@ -15,20 +15,20 @@
   <div class="p-grid">
     <div class="p-col-12">
       <div class="table-container">
-        <p-table [value]="escolas" [lazy]="true" responsiveLayout="scroll"
-            [paginator]="true" [rows]="5" [globalFilterFields]="['escolas.nome','escolas.evento']">
+        <p-table [value]="eventos" [lazy]="true" [responsive]="true" responsiveLayout="scroll"
+            [paginator]="true" [rows]="5" [globalFilterFields]="['evento.escola.nome','evento.nome']">
             <ng-template pTemplate="header">
                 <tr>
-                    <th pSortableColumn="escolas.nome">Nome da escola<p-sortIcon field="nome"></p-sortIcon></th>
-                    <th pSortableColumn="escolas.evento">Evento<p-sortIcon field="evento"></p-sortIcon></th>
+                    <th pSortableColumn="evento.escola.nome">Nome da escola<p-sortIcon field="nome"></p-sortIcon></th>
+                    <th pSortableColumn="evento.nome">Evento<p-sortIcon field="evento"></p-sortIcon></th>
                     <th style="text-align: center;">Informações sobre o evento</th>
                 </tr>
                 <tr>
                     <th>
-                        <p-columnFilter type="text" field="escolas.nome"></p-columnFilter>
+                        <p-columnFilter type="text" field="evento.escola.nome"></p-columnFilter>
                     </th>
                     <th>
-                        <p-columnFilter type="text" field="escolas.evento"></p-columnFilter>
+                        <p-columnFilter type="text" field="evento.nome"></p-columnFilter>
                     </th>
                     <th style="text-align: center;" >
                       Clique no  <i class="pi pi-info-circle"></i>  para obter informações sobre o evento,
@@ -39,13 +39,27 @@
             </ng-template>
             <ng-template pTemplate="body" let-escolas>
                 <tr>
-                    <td>{{ escolas.nome }}</td>
-                    <td>{{ escolas.evento }}</td>
+                    <td>{{ evento.escola.nome }}</td>
+                    <td>{{ evento.nome }}</td>
                     <td>
                       <div class="action-button">
-                        <button style="margin: 1px;" pButton icon="pi pi-info-circle" pTooltip="Mais informações" tooltipPosition="top"></button>
-                        <button style="margin: 1px;" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
-                        <button class="action-button-trash" pButton icon="pi pi-trash" pTooltip="Apagar" tooltipPosition="top"></button>
+
+                        <!-- Indicando a rota de navegação para o Router -->
+                        <nav>
+                          <!-- Leva para a página de informação do evento especifico -->
+                          <a [routerLink]="['/pagina-coordenador/item-lista-eventos', evento.codigo]">
+                            <button style="margin: 1px;" pButton icon="pi pi-info-circle" pTooltip="Mais informações" tooltipPosition="top"></button>
+                          </a>
+
+                          <!-- Leva para a página de ediação do evento especifico -->
+                          <a [routerLink]="['/editar-evento', evento.codigo]">
+                            <button style="margin: 1px;" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
+                          </a>
+                        </nav>
+
+                        <!-- Botão 'apagar' não troca de página por isso está fora do nav -->
+                        <button class="action-button-trash" pButton icon="pi pi-trash" pTooltip="Apagar" tooltipPosition="top" (click)="confirmarExclusao(evento)"></button>
+
                       </div>
                     </td>
                 </tr>

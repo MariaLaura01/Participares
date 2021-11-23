@@ -21,28 +21,28 @@
 
       <!--Tablela contendo o nome das escolas e o nome dos eventos (todos) - design geral (styles.css)-->
       <div class="table-container">
-        <p-table [value]="escolas" [lazy]="true" responsiveLayout="scroll"
-            [paginator]="true" [rows]="5" [globalFilterFields]="['escolas.nome','escolas.evento']">
+        <p-table [value]="eventos" [lazy]="true" responsiveLayout="scroll"
+            [paginator]="true" [rows]="5" [globalFilterFields]="['evento.escola.nome','evento.nome']">
             <ng-template pTemplate="header">
                 <tr>
-                    <th pSortableColumn="escolas.nome">Nome da escola<p-sortIcon field="nome"></p-sortIcon></th>
-                    <th pSortableColumn="escolas.evento">Evento<p-sortIcon field="evento"></p-sortIcon></th>
-                    <th style="text-align: center;">Informações sobre o evento</th>
+                  <th pSortableColumn="evento.escola.nome">Nome da escola<p-sortIcon field="nome"></p-sortIcon></th>
+                  <th pSortableColumn="evento.nome">Evento<p-sortIcon field="evento"></p-sortIcon></th>
+                  <th style="text-align: center;">Informações sobre o evento</th>
                 </tr>
                 <tr>
                     <th>
-                        <p-columnFilter type="text" field="escolas.nome"></p-columnFilter>
+                      <p-columnFilter type="text" field="evento.escola.nome"></p-columnFilter>
                     </th>
                     <th>
-                        <p-columnFilter type="text" field="escolas.evento"></p-columnFilter>
+                      <p-columnFilter type="text" field="evento.nome"></p-columnFilter>
                     </th>
                     <th style="text-align: center;" >Clique no  <i class="pi pi-info-circle"></i>  para obter informações sobre o evento.</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-escolas>
                 <tr>
-                    <td>{{ escolas.nome }}</td>
-                    <td>{{ escolas.evento }}</td>
+                    <td>{{ evento.escola.nome }}</td>
+                    <td>{{ evento.nome }}</td>
                     <td>
 
                       <!-- Indicando a rota de navegação para o Router -->
@@ -58,8 +58,8 @@
         </p-table>
       </div>
 
-      <!-- Texto normal - design geral (styles.css) -->
-      <div class="text-container p-col-12">
+      <!-- Texto normal - design geral (styles.css) + design local link-body (componentes.css) -->
+      <div class="text-container link-body p-col-12">
         <p>
           Precisa editar ou criar um evento? Faça o login
         </p>

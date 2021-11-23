@@ -3,20 +3,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class PaginaEventoService
+export class PaginaInicialService
 {
-
-  eventosUrl = 'http://localhost:8080/eventos';
+  homeUrl = 'http://localhost:8080/home';
 
   constructor(private http: HttpClient) { }
 
   pesquisar(): Promise<any>
   {
-    return this.http.get(`${this.eventosUrl}`)
+    return this.http.get(`${this.homeUrl}`)
       .toPromise()
       .then(response => {
         return response;
@@ -25,7 +23,7 @@ export class PaginaEventoService
 
   excluir(codigo: number): Promise<any>
   {
-    return this.http.delete(`${this.eventosUrl}/${codigo}`)
+    return this.http.delete(`${this.homeUrl}/${codigo}`)
       .toPromise()
       .then(() => null);
   }
@@ -35,7 +33,7 @@ export class PaginaEventoService
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/json');
 
-      return this.http.post<Evento>(this.eventosUrl,
+      return this.http.post<Evento>(this.homeUrl,
         Evento.toJson(evento), {headers})
         .toPromise();
   }
@@ -45,7 +43,7 @@ export class PaginaEventoService
     const headers = new HttpHeaders()
       .append('Content-Type', 'application/json');
 
-    return this.http.put<Evento>(`${this.eventosUrl}/${evento.codigo}`, Evento.toJson(evento), { headers })
+    return this.http.put<Evento>(`${this.homeUrl}/${evento.codigo}`, Evento.toJson(evento), { headers })
       .toPromise()
       .then(response => {
         const eventoAlterado = response;
@@ -55,7 +53,7 @@ export class PaginaEventoService
 
   buscarPorCodigo(codigo: number): Promise<Evento> | any
   {
-    return this.http.get<Evento>(`${this.eventosUrl}/${codigo}`)
+    return this.http.get<Evento>(`${this.homeUrl}/${codigo}`)
       .toPromise()
       .then(response => {
         const evento = response;
@@ -65,12 +63,11 @@ export class PaginaEventoService
 
   nomeEscolaPorCodigo(codigo: number): Promise<Escolas> | any // Provavelmente está errado
   {
-    return this.http.get<Escolas>(`${this.eventosUrl}/${codigo}`)
+    return this.http.get<Escolas>(`${this.homeUrl}/${codigo}`)
       .toPromise()
       .then(response => {
         const escola = response;
         return escola;
       });
   }
-
 }
