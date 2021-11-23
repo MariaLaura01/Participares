@@ -8,11 +8,54 @@
 
 
   <!-- Informações da página -->
+
+  <div class="p-col-12" style="margin-bottom: 20px;">
+
+    <div>
+      <p class="text-container"><b>Descrição: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> Descrição </p>
+    </div>
+
+    <div>
+      <p class="text-container"><b>Data: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> data </p>
+    </div>
+
+    <div>
+      <p class="text-container"><b>Endereço: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> Endereço </p>
+    </div>
+
+    <div>
+      <p class="text-container"><b>Escola responsável: </b></p>
+      <p class="text-container" style="margin-bottom: 20px;"> escola  </p>
+    </div>
+
+    <!-- Conteúdo antes da galeria -->
+    <div class="splitter-container container-align">
+      <div class="upload-container" style="margin-top: 10px;">
+        <p-fileUpload  pTooltip="Nova foto" tooltipPosition="top" #fubauto mode="basic" name="myfile[]" url="./upload.php" accept="image/*" [auto]="true" chooseLabel="Nova foto"></p-fileUpload>
+      </div>
+      <div class="text-container" style="float: left; margin-top: 10px;"><p><b>Fotos:</b></p></div>
+
+      <div>
+        <!-- Indicando onde o caminho do botão editar -->
+        <nav>
+          <a href="/editar-evento">
+            <button class="button-container" style="margin: 6px; float: right;" pTooltip="Editar evento" tooltipPosition="top"><i class="pi pi-pencil"></i>  Editar evento</button>
+          </a>
+        </nav>
+        <button class="button-container-apagar" style="margin: 6px; float: right;" pTooltip="Apagar evento" tooltipPosition="top"><i class="pi pi-trash"></i>  Apagar evento</button>
+    </div>
+
+  </div>
+
+  <!--
   <div class="p-grid">
     <div class="p-col-12">
 
      <div class="splitter-container" style="margin-bottom: 40px;"> <!-- Por algum motivo o CSS não funciona, então fiz essa gambiarra -->
-        <p-splitter [style]="{'height': '100px', 'background-color': 'aliceblue', 'text-align': 'justify'}" layout="horizontal">
+        <!--<p-splitter [style]="{'height': '100px', 'background-color': 'aliceblue', 'text-align': 'justify'}" layout="horizontal">
           <ng-template pTemplate>
             <p class="text-container" pTooltip="Descrição do evento" tooltipPosition="top">Descrição</p>
           </ng-template>
@@ -36,7 +79,7 @@
         </p-splitter>
 
         <!-- Conteúdo antes da galeria -->
-        <div class="container-align">
+        <!--<div class="container-align">
           <div class="upload-container" style="margin-top: 10px;">
             <p-fileUpload  pTooltip="Nova foto" tooltipPosition="top" #fubauto mode="basic" name="myfile[]" url="./upload.php" accept="image/*" [auto]="true" chooseLabel="Nova foto"></p-fileUpload>
           </div>
@@ -51,12 +94,11 @@
 
     </div>
   </div>
+-->
 
+  <!--<router-outlet></router-outlet>-->
 
-
-
-
-  </div>
+  <!--</div>-->
 
   <!-- Galeria -->
   <div  class="p-shadow-24" style="margin-top: 80px; float: left;">

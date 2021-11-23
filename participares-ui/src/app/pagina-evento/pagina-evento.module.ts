@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GenericoComponent } from './generico/generico.component';
@@ -28,12 +29,14 @@ import { TooltipModule } from 'primeng/tooltip';
     GalleriaModule,
     FileUploadModule,
     HttpClientModule,
-    TooltipModule
+    TooltipModule,
+    RouterModule
   ],
   exports:[
     GenericoComponent,
     EditavelComponent,
-    ListaEventoComponent
+    ListaEventoComponent,
+    RouterModule
   ]
 })
 export class PaginaEventoModule { }
