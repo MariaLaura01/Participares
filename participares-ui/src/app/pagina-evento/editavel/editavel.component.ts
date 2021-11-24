@@ -1,8 +1,10 @@
-import { Escolas } from './../../core/model';
+import { PhotoService } from './../photo.service';
+import { Escolas, Imagens } from './../../core/model';
 import { ErrorHandlerService } from './../../core/error-handler.service';
 import { PaginaEventoService } from './../pagina-evento.service';
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-editavel',
@@ -11,18 +13,47 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class EditavelComponent implements OnInit
 {
+  imagens = new Imagens();
+
   evento = [];
 
   escola = new Escolas();
 
   constructor(private pgService: PaginaEventoService,
+    private photoService: PhotoService,
     private errorHandler: ErrorHandlerService,
     private confirmation: ConfirmationService,
     private messageService: MessageService) { }
 
+    // Relacionado com as fotos
+    responsiveOptions:any[] =
+    [
+      {
+          breakpoint: '1024px',
+          numVisible: 5
+      },
+      {
+          breakpoint: '768px',
+          numVisible: 3
+      },
+      {
+          breakpoint: '560px',
+          numVisible: 1
+      }
+  ];
+
+  displayBasic: boolean = false;
+
+  displayBasic2: boolean = false;
+
+  displayCustom: boolean = false;
+
+  activeIndex: number = 0;
+
   ngOnInit(): void
   {
     this.pesquisar();
+    this.photoService.getImages().then(images => this.imagens = images);
   }
 
   // Insere as informações na página
@@ -34,6 +65,20 @@ export class EditavelComponent implements OnInit
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
+
+  //add nova foto
+  novaFoto(_form: NgForm)
+  {
+    this.photoService.adicionarFoto(this.imagens)
+    .catch((erro: any) => this.errorHandler.handle(erro));
+  }
+
+  // Clique na foto
+  imageClick(index: number)
+  {
+    this.activeIndex = index;
+    this.displayCustom = true;
+}
 
   // Apaga o evento
   confirmarExclusao(evento: any): void
