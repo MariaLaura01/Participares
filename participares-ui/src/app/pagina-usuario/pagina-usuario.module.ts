@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { AssistenteModule } from './assistente/assistente.module';
 import { CoordenadorModule } from './coordenador/coordenador.module';
 import { AdministradorModule } from './administrador/administrador.module';
@@ -17,7 +19,8 @@ import { AssistenteComponent } from './assistente/assistente.component';
     CommonModule,
     AdministradorModule,
     CoordenadorModule,
-    AssistenteModule
+    AssistenteModule,
+    RouterModule
   ],
   exports : [
     AdministradorComponent,

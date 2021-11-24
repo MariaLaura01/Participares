@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { CadastroCoordenadoresComponent } from './cadastro-coordenadores/cadastro-coordenadores.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -26,7 +28,9 @@ import { PaginaAdmComponent } from './pagina-adm/pagina-adm.component';
     DividerModule,
     HttpClientModule,
     TooltipModule,
-    DropdownModule
+    DropdownModule,
+    FormsModule,
+    RouterModule
   ],
   exports: [
     ListaCoordenadoresComponent,

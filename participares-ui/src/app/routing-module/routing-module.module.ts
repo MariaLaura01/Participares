@@ -30,14 +30,17 @@ const routes: Routes =
 
   {path: 'pagina-adm', component: PaginaAdmComponent},
   {path: 'pagina-adm/cadastro-coordenadores', component: CadastroCoordenadoresComponent},
+  {path: 'pagina-adm/edicao-coordenadores', component: CadastroCoordenadoresComponent},
   {path: 'pagina-adm/item-lista-coordenadores', component: ItemListaCoordenadoresComponent},
   {path: 'pagina-adm/lista-coordenadores', component: ListaCoordenadoresComponent},
 
   {path: 'pagina-coordenador', component: PaginaCoordenadorComponent},
   {path: 'pagina-coordenador/cadastro-assistente', component: CadastroAssistenteComponent},
+  {path: 'pagina-coordenador/editar-assistente', component: CadastroAssistenteComponent},
   {path: 'pagina-coordenador/item-lista-assistente', component: ItemListaAssistenteComponent},
   {path: 'pagina-coordenador/lista-assistente', component: ListaAssistenteComponent},
   {path: 'pagina-coordenador/cadastro-evento', component: CadastroEventoComponent},
+  {path: 'pagina-coordenador/editar-evento', component: CadastroEventoComponent},
   {path: 'pagina-coordenador/lista-eventos', component: ListaEventoComponent},
   {path: 'pagina-coordenador/item-lista-eventos', component: EditavelComponent},
 

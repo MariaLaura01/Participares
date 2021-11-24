@@ -1,4 +1,4 @@
-<div class="container p-col-12 p-fluid">
+<div class="container p-col-12 p-fluid" *ngIf="usuario">
 
   <!-- Título da página -->
   <div class="title-container p-col-12">
@@ -11,26 +11,29 @@
   <div class="p-col-12" style="margin-bottom: 20px;">
 
     <div>
-      <p class="text-container"><b>Nome: </b></p>
-      <p class="text-container" style="margin-bottom: 20px;"> nome do assistente </p>
-    </div>
-
-    <div>
       <p class="text-container"><b>Email: </b></p>
-      <p class="text-container" style="margin-bottom: 20px;"> email do assistente </p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{usuario.login}} </p>
     </div>
 
     <div>
       <p class="text-container"><b>Senha: </b></p>
-      <p class="text-container" style="margin-bottom: 20px;"> senha do assistente </p>
+      <p class="text-container" style="margin-bottom: 20px;"> {{usuario.senha}} </p>
     </div>
 
   </div>
 
   <!-- Botões -->
   <div class="p-col-12">
-    <button class="button-container" style="display: flex; margin: auto; text-align: center;" pTooltip="Editar informações do coordenador" tooltipPosition="top"><i class="pi pi-pencil"></i>  Editar assistente</button>
+    <!-- Indicando o caminho do botão editar -->
+    <nav>
+      <a [routerLink]="['/pagina-coordenador/editar-assistente', usuario.login]">
+        <button class="button-container" style="display: flex; margin: auto; text-align: center;" pTooltip="Editar informações do coordenador" tooltipPosition="top"><i class="pi pi-pencil"></i>  Editar assistente</button>
+      </a>
+    </nav>
+
     <div style="width: 5%; display: flex; margin: auto;"><p-divider></p-divider></div>
+
+    <!-- Botão 'apagar' não troca de página por isso está fora do nav -->
     <button class="button-container-apagar" style="display: flex; margin: auto; text-align: center;" pTooltip="Apagar coordenador" tooltipPosition="top"><i class="pi pi-trash"></i>  Apagar assistente</button>
   </div>
 </div>

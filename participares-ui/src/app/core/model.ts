@@ -47,6 +47,16 @@ export class Imagens
   codigo: number | undefined;
   codigo_do_evento: number | undefined;
   link: string | undefined;
+
+  static toJson(imagens: Imagens)
+  {
+    return
+    {
+      codigo: imagens.codigo;
+      codigo_do_evento: imagens.codigo_do_evento;
+      link: imagens.link;
+    };
+  }
 }
 
 export class Usuarios
@@ -55,4 +65,17 @@ export class Usuarios
   senha: string | undefined;
   tipo: string | undefined;
   codigo_da_escola: number | undefined;
+  escola = new Escolas();
+
+  static toJson(usuarios: Usuarios)
+  {
+    return
+    {
+      login: usuarios.login;
+      senha: usuarios.senha;
+      tipo: usuarios.tipo;
+      codigo_da_escola: usuarios.codigo_da_escola;
+      escola: usuarios.escola;
+    };
+  }
 }

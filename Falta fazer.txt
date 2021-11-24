@@ -1,12 +1,7 @@
 
-- Criar os services
 
-- Preencher os component.ts
-
-- add navegação no site (nav em todos os botões/links)
-
-- referenciar o component.ts nos codigos html
-
-- descobrir oprque alguns links nçao funcionam e fazer funcionar
+- descobrir porque alguns links não funcionam e fazer funcionar
 
 - a bendita galeria
+
+- testar

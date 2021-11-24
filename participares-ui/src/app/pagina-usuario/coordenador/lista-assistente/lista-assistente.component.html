@@ -15,20 +15,16 @@
   <div class="p-grid">
     <div class="p-col-12">
       <div class="table-container">
-        <p-table [value]="assistentes" [lazy]="true" responsiveLayout="scroll"
-            [paginator]="true" [rows]="5" [globalFilterFields]="['assistentes.nome','assistentes.email']">
+        <p-table [value]="usuario" [lazy]="true" responsiveLayout="scroll"
+            [paginator]="true" [rows]="5" [globalFilterFields]="['usuario.login']">
             <ng-template pTemplate="header">
                 <tr>
-                    <th pSortableColumn="assistentes.nome">Nome<p-sortIcon field="nome"></p-sortIcon></th>
-                    <th pSortableColumn="assistentes.email">Email<p-sortIcon field="email"></p-sortIcon></th>
-                    <th style="text-align: center;">Informações sobre o assistente</th>
+                  <th pSortableColumn="usuario.login">Email<p-sortIcon field="email"></p-sortIcon></th>
+                  <th style="text-align: center;">Informações sobre o assistente</th>
                 </tr>
                 <tr>
                     <th>
-                        <p-columnFilter type="text" field="assistentes.nome"></p-columnFilter>
-                    </th>
-                    <th>
-                        <p-columnFilter type="text" field="assistentes.email"></p-columnFilter>
+                        <p-columnFilter type="text" field="usuario.login"></p-columnFilter>
                     </th>
                     <th style="text-align: center;" >
                       Clique no  <i class="pi pi-info-circle"></i>  para obter informações sobre o assistente,
@@ -39,13 +35,25 @@
             </ng-template>
             <ng-template pTemplate="body" let-assistentes>
                 <tr>
-                    <td>{{ assistentes.nome }}</td>
-                    <td>{{ assistentes.email }}</td>
+                    <td>{{ usuario.login }}</td>
                     <td>
                       <div class="action-button">
-                        <button style="margin: 1px;" pButton icon="pi pi-info-circle" pTooltip="Mais informações" tooltipPosition="top"></button>
-                        <button style="margin: 1px;" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
-                        <button class="action-button-trash" pButton icon="pi pi-trash" pTooltip="Apagar" tooltipPosition="top"></button>
+                        <!-- Indicando a rota de navegação para o Router -->
+                        <nav>
+                          <!-- Leva para a página de informação do usuario especifico -->
+                          <a [routerLink]="['/pagina-coordenador/item-lista-assistente', usuario.login]">
+                            <button style="margin: 1px;" pButton icon="pi pi-info-circle" pTooltip="Mais informações" tooltipPosition="top"></button>
+                          </a>
+
+                          <!-- Leva para a página de ediação do usuario especifico -->
+                          <a [routerLink]="['/pagina-coordenador/editar-assistente', usuario.login]">
+                            <button style="margin: 1px;" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
+                          </a>
+                        </nav>
+
+                        <!-- Botão 'apagar' não troca de página por isso está fora do nav -->
+                        <button class="action-button-trash" pButton icon="pi pi-trash" pTooltip="Apagar" tooltipPosition="top" (click)="confirmarExclusao(usuario)"></button>
+
                       </div>
                     </td>
                 </tr>

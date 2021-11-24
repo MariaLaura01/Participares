@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { NgModule } from '@angular/core';
@@ -24,7 +26,9 @@ import { DividerModule } from 'primeng/divider';
     ButtonModule,
     CalendarModule,
     DividerModule,
-    TableModule
+    TableModule,
+    RouterModule,
+    FormsModule
   ],
   exports : [
     CadastroAssistenteComponent,
